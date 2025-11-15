@@ -1,6 +1,6 @@
-# Nuxt Minimal Starter
+# Nuxt Frontend Project
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Nuxt4 + daisyUI + Pinia + i18n
 
 ## Setup
 
