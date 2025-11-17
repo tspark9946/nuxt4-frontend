@@ -3,12 +3,8 @@
 </script>
 
 <template>
-  <main>
+  <main class="min-h-screen flex flex-col items-center relative">
     <p>Some default layout</p>
     <slot />
   </main>
 </template>
-
-<style scoped>
-
-</style>
