@@ -4,11 +4,7 @@
 
 <template>
   <div>
-    <p>Index Page</p>
-    <div>
-      <CommonAuthButton />
-      <CommonColorModeButton />
-    </div>
+    <h1>Callback Page</h1>
   </div>
 </template>
 

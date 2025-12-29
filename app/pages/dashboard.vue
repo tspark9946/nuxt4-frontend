@@ -4,11 +4,7 @@
 
 <template>
   <div>
-    <p>Index Page</p>
-    <div>
-      <CommonAuthButton />
-      <CommonColorModeButton />
-    </div>
+    dashboard
   </div>
 </template>
 

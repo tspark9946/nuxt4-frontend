@@ -1,6 +1,6 @@
 # Nuxt Frontend Project
 
-Nuxt4 + daisyUI + Pinia + i18n
+Nuxt4 + nuxtUI + Pinia + i18n
 
 ## Setup
 
