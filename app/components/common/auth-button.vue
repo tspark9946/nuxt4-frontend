@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { DropdownMenuItem } from '@nuxt/ui';
 
-const authStore = useAuthStore();
+const authStore = useBetterAuthStore();
 
 const items = ref<DropdownMenuItem[]>([
   {

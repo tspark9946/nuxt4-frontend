@@ -16,12 +16,13 @@ export default withNuxt(
         semi: true,
         quotes: 'single',
       },
+      ignore: ['**/migrations/*'],
     },
     {
       rules: {
         'vue/no-multiple-template-root': 'off',
         'ts/no-redeclare': 'off',
-        'ts/consistent-type-definitions': ['error', 'type'],
+        'ts/consistent-type-definitions': ['error', 'interface'],
         'no-console': ['warn'],
         'antfu/no-top-level-await': ['off'],
         'node/prefer-global/process': ['off'],
@@ -37,9 +38,10 @@ export default withNuxt(
           {
             // Options: kebabCase, camelCase, PascalCase, snake_case
             case: 'kebabCase',
-            ignore: ['README.md'],
+            ignore: ['README.md', '.*snapshot\\.json$'],
           },
         ],
+
       },
     },
   ),

@@ -15,14 +15,29 @@ const state = reactive<Partial<Schema>>({
   password: '',
 });
 
+const error = ref('');
+const loding = ref(false);
+
+const authStore = useAuthStore();
 const { signIn } = useAuth();
 async function onSubmit(event: FormSubmitEvent<Schema>) {
-  const { error } = await signIn.email({
-    email: event.data.email,
-    password: event.data.password,
-    callbackURL: '/',
-  });
-  console.log(error);
+  error.value = '';
+  loding.value = true;
+  try {
+    const success = await authStore.login(event.data.email, event.data.password);
+    if (success) {
+      navigateTo('/');
+    }
+    else {
+      error.value = 'Invalid email or password';
+    }
+  }
+  catch (err) {
+    error.value = 'An error occurred while logging in';
+  }
+  finally {
+    loding.value = false;
+  }
 }
 </script>
 
@@ -43,9 +58,9 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
             variant="outline"
             icon="i-simple-icons-google"
             class="justify-center"
-
             :loading="false"
             :disabled="false"
+            @click="signIn.social({ provider: 'google', callbackURL: '/' })"
           >
             Google
           </u-button>
@@ -56,10 +71,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
             class="justify-center"
             :loading="false"
             :disabled="false"
-            @click="signIn.social({
-              provider: 'github',
-              callbackURL: '/',
-            })"
+            @click="signIn.social({ provider: 'github', callbackURL: '/auth/callback' })"
           >
             Github
           </u-button>

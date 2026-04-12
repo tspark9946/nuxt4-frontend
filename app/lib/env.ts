@@ -9,6 +9,8 @@ const EnvSchema = z.object({
   PMS_DATABASE_URL: z.string(),
   AUTH_GITHUB_CLIENT_ID: z.string(),
   AUTH_GITHUB_CLIENT_SECRET: z.string(),
+  NUXT_PUBLIC_API_BASE: z.string(),
+  NUXT_PUBLIC_LOGIN_PATH: z.string(),
 });
 
 export type EnvSchema = z.infer<typeof EnvSchema>;

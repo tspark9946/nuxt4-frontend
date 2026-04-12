@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxtjs/color-mode',
     '@pinia/nuxt',
+    'pinia-plugin-persistedstate/nuxt',
   ],
   css: ['~/assets/css/main.css'],
   eslint: {
@@ -19,7 +20,12 @@ export default defineNuxtConfig({
   colorMode: {
     preference: 'light',
   },
-  // pinia: {
-  //   storesDirs: ['~/stores/**'],
-  // },
+  runtimeConfig: {
+    pmsProxyUrl: 'http://localhost:8000/',
+    public: {
+      apiBase: '',
+      loginPath: '',
+    },
+  },
+
 });
