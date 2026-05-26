@@ -41,6 +41,18 @@ export default withNuxt(
             ignore: ['README.md', '.*snapshot\\.json$'],
           },
         ],
+        // 'vue/max-attributes-per-line': [
+        //   'error',
+        //   {
+        //     singleline: {
+        //       max: 3,
+        //     },
+        //     multiline: {
+        //       max: 1,
+        //       allowFirstLine: false,
+        //     },
+        //   },
+        // ],
 
       },
     },

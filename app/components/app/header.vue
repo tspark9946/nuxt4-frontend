@@ -1,21 +1,40 @@
 <script setup lang="ts">
-const route = useRoute();
+import type { DropdownMenuItem } from '@nuxt/ui';
 
+const route = useRoute();
 const { toggle } = useSidebar();
+const authStore = useAuthStore();
+const isAuthenticated = computed(() => authStore.isAuthenticated);
+const userName = computed(() => authStore.user?.name || '');
+// 여러 속성을 가져올때는 아래와 같이 storeToRefs를 사용하는 것이 좋습니다.
+// const { isAuthenticated } = storeToRefs(authStore);
+
+const logItems = ref<DropdownMenuItem[]>([
+  {
+    label: 'Sign out',
+    icon: 'tabler:logout-2',
+    onSelect: async () => {
+      await authStore.logout();
+    },
+  },
+]);
 
 const items = computed(() => [{
   label: 'Docs',
   to: '/docs',
   active: route.path.startsWith('/docs'),
 }, {
-  label: 'Pricing',
-  to: '/pricing',
+  label: '예약 및 현황',
+  to: '/register',
 }, {
-  label: 'Blog',
-  to: '/blog',
+  label: '진료',
+  to: '/treatment',
 }, {
-  label: 'Changelog',
-  to: '/changelog',
+  label: '입원 및 호텔',
+  to: '/hospitalization',
+}, {
+  label: '미용',
+  to: '/beauty',
 }]);
 </script>
 
@@ -49,8 +68,22 @@ const items = computed(() => [{
         to="/login"
         class="lg:hidden"
       />
-
-      <UButton
+      <UDropdownMenu
+        v-if="isAuthenticated && userName"
+        :items="logItems"
+        :content="{
+          align: 'start',
+          side: 'bottom',
+          sideOffset: 8,
+        }"
+        :ui="{
+          content: 'w-48',
+        }"
+      >
+        <UButton :label="userName" icon="i-lucide-menu" color="neutral" variant="outline" />
+      </UDropdownMenu>
+      <u-button
+        v-else
         label="Sign in"
         color="neutral"
         variant="outline"

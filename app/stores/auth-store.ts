@@ -1,9 +1,9 @@
-type User = {
-  uid: string;
-  hid: string;
+interface User {
+  uid: number;
+  hid: number;
   email: string;
   name: string;
-};
+}
 
 export const useAuthStore = defineStore('auth', () => {
   // --- State ---
@@ -47,6 +47,7 @@ export const useAuthStore = defineStore('auth', () => {
 
       setToken(response.access_token);
       setUser(response.user);
+      isAuthenticated.value = true;
       return true;
     }
     catch (error) {

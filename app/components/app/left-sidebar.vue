@@ -27,57 +27,67 @@ const isOpen = computed({
 
 const items = ref<NavigationMenuItem[]>([
   {
-    label: 'Guide',
+    label: '진료대기',
     icon: 'i-lucide-book-open',
     badge: '5',
     to: '/docs/getting-started',
     children: [
       {
-        label: 'Introduction',
+        label: '제1진료실',
         description: 'Fully styled and customizable components for Nuxt.',
         icon: 'i-lucide-house',
       },
       {
-        label: 'Installation',
-        description: 'Learn how to install and configure Nuxt UI in your application.',
+        label: '제2진료실',
         icon: 'i-lucide-cloud-download',
+        children: [
+          {
+            label: '아롱이(개, 강감찬)',
+            icon: 'i-vscode-icons-file-type-vue',
+            to: '/auth/login',
+          },
+          {
+            label: '다롱이(Cat, 이순신)',
+            icon: 'i-vscode-icons-file-type-vue',
+          },
+        ],
       },
       {
-        label: 'Icons',
+        label: '제3진료실',
         icon: 'i-lucide-smile',
         description: 'You have nothing to do, @nuxt/icon will handle it automatically.',
       },
       {
-        label: 'Colors',
+        label: '제4진료실',
         icon: 'i-lucide-swatch-book',
         description: 'Choose a primary and a neutral color from your Tailwind CSS theme.',
       },
       {
-        label: 'Theme',
+        label: '제5진료실',
         icon: 'i-lucide-cog',
         description: 'You can customize components by using the `class` / `ui` props or in your app.config.ts.',
       },
     ],
   },
   {
-    label: 'Composables',
+    label: '진 료 중',
     icon: 'i-lucide-database',
     to: '/docs/composables',
     children: [
       {
-        label: 'defineShortcuts',
+        label: '제1진료실',
         icon: 'i-lucide-file-text',
         description: 'Define shortcuts for your application.',
         to: '/docs/composables/define-shortcuts',
       },
       {
-        label: 'useOverlay',
+        label: '제2진료실',
         icon: 'i-lucide-file-text',
         description: 'Display a modal/slideover within your application.',
         to: '/docs/composables/use-overlay',
       },
       {
-        label: 'useToast',
+        label: '제3진료실',
         icon: 'i-lucide-file-text',
         description: 'Display a toast within your application.',
         to: '/docs/composables/use-toast',
@@ -85,43 +95,32 @@ const items = ref<NavigationMenuItem[]>([
     ],
   },
   {
-    label: 'Components',
+    label: '수납대기',
     icon: 'i-lucide-box',
     to: '/docs/components',
     active: true,
     children: [
       {
-        label: 'Link',
+        label: '제1진료실',
         icon: 'i-lucide-file-text',
         description: 'Use NuxtLink with superpowers.',
         to: '/docs/components/link',
       },
       {
-        label: 'Modal',
+        label: '제2진료실',
         icon: 'i-lucide-file-text',
         description: 'Display a modal within your application.',
         to: '/docs/components/modal',
       },
       {
-        label: 'NavigationMenu',
+        label: '제3진료실',
         icon: 'i-lucide-file-text',
         description: 'Display a list of links.',
         to: '/docs/components/navigation-menu',
       },
+
       {
-        label: 'Pagination',
-        icon: 'i-lucide-file-text',
-        description: 'Display a list of pages.',
-        to: '/docs/components/pagination',
-      },
-      {
-        label: 'Popover',
-        icon: 'i-lucide-file-text',
-        description: 'Display a non-modal dialog that floats around a trigger element.',
-        to: '/docs/components/popover',
-      },
-      {
-        label: 'Progress',
+        label: '제4진료실',
         icon: 'i-lucide-file-text',
         description: 'Show a horizontal bar to indicate task progression.',
         to: '/docs/components/progress',
@@ -144,13 +143,9 @@ const items = ref<NavigationMenuItem[]>([
 </script>
 
 <template>
-  <USidebar
-    v-model:open="isOpen"
-    :variant="props.variant"
-    :collapsible="props.collapsible"
-    :side="props.side"
+  <USidebar v-model:open="isOpen" :variant="props.variant" :collapsible="props.collapsible" :side="props.side" 
     :ui="{
-      container: 'h-full border-r',
+      container: 'h-full border-r mt-16',
     }"
   >
     <template #header>

@@ -3,7 +3,7 @@ const { isOpen } = useSidebar();
 </script>
 
 <template>
-  <div class="flex flex-col h-screen overflow-hidden">
+  <div class="flex flex-col h-screen">
     <app-header class="shrink-0 border-b" />
     <div class="flex flex-1 min-h-0 overflow-hidden">
       <AppLeftSidebar v-model:open="isOpen" variant="sidebar" collapsible="offcanvas" side="left" />
@@ -13,6 +13,7 @@ const { isOpen } = useSidebar();
         </u-main>
         <u-separator icon="i-simple-icons-nuxtdotjs" type="dashed" class="h-px" />
         <app-footer />
+
       </div>
     </div>
   </div>

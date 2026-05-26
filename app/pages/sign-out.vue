@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const authStore = useAuthStore();
+const authStore = useBetterAuthStore();
 onMounted(async () => {
   await authStore.signOut();
   navigateTo('/');
@@ -12,6 +12,4 @@ onMounted(async () => {
   </div>
 </template>
 
-<style scoped>
 
-</style>

@@ -34,7 +34,7 @@ async function onSubmit(payload: FormSubmitEvent<Schema>) {
   try {
     const success = await authStore.login(payload.data.email, payload.data.password);
     if (success) {
-      navigateTo('/client');
+      navigateTo('/register/client');
     }
     else {
       error.value = 'Invalid email or password';
